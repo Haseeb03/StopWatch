@@ -5,7 +5,7 @@ var minheading = document.getElementById("minute");
 var secheading = document.getElementById("second");
 var miliheading = document.getElementById("milisec");
 var intervel;
-
+var i=0;
 function timer(){
     milisec++;
     miliheading.innerHTML = milisec;
@@ -37,13 +37,20 @@ function reset(){
     minute = 0;
     second = 0;
     milisec = 0;
-    minheading.innerHTML =minute;
+    minheading.innerHTML = minute;
     secheading.innerHTML = second;
     miliheading.innerHTML = milisec;
     stop();
 }
 function lap(){
-    document.write(minheading.innerHTML);
-    document.write(secheading.innerHTML);
-    document.write(miliheading.innerHTML);
+    var lapHistory = (minute) + ":" + (second) + ":" + (milisec);
+    if(i%2==0){
+        i=i+1;
+        laps.innerHTML += "<div class=lapss><h1><i class='fas fa-pen' style='color:white;'></i>" + lapHistory + "</h1></div><br>";
+    }
+    else{
+        i=i+1;
+        laps.innerHTML += "<div class=lapsss><h1><i class='fas fa-pen' style='color:white;'></i>" + lapHistory + "</h1></div><br>";
+
+    }
 }
